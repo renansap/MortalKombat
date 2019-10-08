@@ -20,20 +20,17 @@ public class Player extends JLabel{
     ImageIcon walkR;
     ImageIcon walkU;
     ImageIcon walkD;
-    ImageIcon stopped;
+    ImageIcon stoppedD; //Parada Direita
+    ImageIcon stoppedE;//Parada Esquerda
     public void setup(){
         setText("12");
-        walkR = new ImageIcon(
-                new ImageIcon(getClass()
-                        .getResource("c_d.gif"))
-                        .getImage()
-                        .getScaledInstance(88, 127, Image.SCALE_DEFAULT));
         
-        stopped = new ImageIcon(
-                new ImageIcon(getClass()
-                        .getResource("p_d.gif"))
-                        .getImage()
-                        .getScaledInstance(88, 127, Image.SCALE_DEFAULT));
+        stoppedD = new ImageIcon(new ImageIcon(getClass().getResource("p_d.gif")).getImage().getScaledInstance(88, 127, Image.SCALE_DEFAULT));
+        stoppedE = new ImageIcon(new ImageIcon(getClass().getResource("p_e.gif")).getImage().getScaledInstance(88, 127, Image.SCALE_DEFAULT));
+        
+        walkR = new ImageIcon(new ImageIcon(getClass().getResource("c_d.gif")).getImage().getScaledInstance(88, 127, Image.SCALE_DEFAULT));  
+        walkL = new ImageIcon(new ImageIcon(getClass().getResource("c_e.gif")).getImage().getScaledInstance(88, 127, Image.SCALE_DEFAULT));
+        
         setBounds(x, y, 90, 127);
         setIcon(walkR);
     }
@@ -50,8 +47,11 @@ public class Player extends JLabel{
         setIcon(walkL);
     }
     
-    public void setIconStopped(){
-        setIcon(stopped);
+    public void setIconStoppedD(){
+        setIcon(stoppedD);
+    }
+        public void setIconStoppedE(){
+        setIcon(stoppedE);
     }
     
 }

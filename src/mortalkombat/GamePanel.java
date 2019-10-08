@@ -140,13 +140,19 @@ public class GamePanel extends javax.swing.JFrame implements Runnable {
     }
 
     public void updateGame() {
-        if (keyRight) {
+        if (keyRight) {//move direita
             player.setIconRight();
             player.x += speed;
+            if (keyRight == false) { //tentativa de parar no lado correto
+                player.setIconStoppedD();
+            }
         }
-
-        if (keyLeft) {
+        if (keyLeft) {//move esquerda
+            player.setIconLeft();
             player.x -= speed;
+            if (keyLeft == false) {//tentativa de parar no lado correto
+                player.setIconStoppedE();
+            }
         }
 
         if (keyUp) {
@@ -157,9 +163,11 @@ public class GamePanel extends javax.swing.JFrame implements Runnable {
             player.y += speed;
         }
 
-        if (!(keyDown || keyUp || keyLeft || keyRight)) {
-            player.setIconStopped();
-        }
+//        if (!(keyDown || keyUp || keyLeft || keyRight)) {
+//            player.setIconStoppedD();
+//        } //else{
+//            player.setIconStoppedE();
+//        }
         player.move();
     }
 
