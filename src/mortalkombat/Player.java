@@ -35,6 +35,8 @@ public class Player extends JLabel{
         setIcon(walkR);
     }
     
+    
+    
     public void move(){
         setBounds(x, y, 90, 127);
     }

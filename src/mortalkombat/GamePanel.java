@@ -138,21 +138,23 @@ public class GamePanel extends javax.swing.JFrame implements Runnable {
             }
         });
     }
-
+     boolean lEsq = false ;
+     boolean lDir =  true;
     public void updateGame() {
+      
+        
         if (keyRight) {//move direita
             player.setIconRight();
             player.x += speed;
-            if (keyRight == false) { //tentativa de parar no lado correto
-                player.setIconStoppedD();
-            }
+            lDir = true;
+            lEsq= false;
         }
+
         if (keyLeft) {//move esquerda
             player.setIconLeft();
             player.x -= speed;
-            if (keyLeft == false) {//tentativa de parar no lado correto
-                player.setIconStoppedE();
-            }
+            lEsq = true ;
+            lDir =false;
         }
 
         if (keyUp) {
@@ -163,11 +165,15 @@ public class GamePanel extends javax.swing.JFrame implements Runnable {
             player.y += speed;
         }
 
-//        if (!(keyDown || keyUp || keyLeft || keyRight)) {
-//            player.setIconStoppedD();
-//        } //else{
-//            player.setIconStoppedE();
-//        }
+        if (!(keyDown || keyUp || keyLeft || keyRight )) {
+            if (lDir){
+                player.setIconStoppedD();
+            }
+             if  (lEsq) {
+                 player.setIconStoppedE();
+            }
+        }
+       
         player.move();
     }
 
