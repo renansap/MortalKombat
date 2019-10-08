@@ -5,17 +5,40 @@
  */
 package mortalkombat;
 
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Ksa
  */
 public class MortalKombat {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    static List<ClienteConectado> clientes = new ArrayList<>();
+    ServerSocket ss;
+    Socket socketNovoCliente;
+
+    public void configurarServidor() {
+        try {
+            ss = new ServerSocket(8200);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-    
+
+    public void aguardarClientes() {
+        try {
+            while (true) {
+                socketNovoCliente = ss.accept();
+                ClienteConectado novoCliente = new ClienteConectado(socketNovoCliente);
+                clientes.add(novoCliente);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }
