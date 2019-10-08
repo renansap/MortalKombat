@@ -74,7 +74,7 @@ public class GamePanel extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_formKeyPressed
 
     private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased
-        // TODO add your handling code here:
+        // TODO add your handling code here elias
         switch (evt.getKeyCode()) {
             case KeyEvent.VK_RIGHT:
                 keyRight = false;
