@@ -6,6 +6,10 @@
 package mortalkombat;
 
 import java.awt.event.KeyEvent;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -17,6 +21,8 @@ public class GamePanel extends javax.swing.JFrame implements Runnable {
     Boolean keyRight = false, keyLeft = false, keyUp = false, keyDown = false;
     Thread t;
     Integer speed = 4;
+    
+    //public List<Player> players = new ArrayList<>();
 
     /**
      * Creates new form GamePanel
@@ -138,23 +144,23 @@ public class GamePanel extends javax.swing.JFrame implements Runnable {
             }
         });
     }
-     boolean lEsq = false ;
-     boolean lDir =  true;
+    boolean lEsq = false;
+    boolean lDir = true;
+
     public void updateGame() {
-      
-        
+
         if (keyRight) {//move direita
             player.setIconRight();
             player.x += speed;
             lDir = true;
-            lEsq= false;
+            lEsq = false;
         }
 
         if (keyLeft) {//move esquerda
             player.setIconLeft();
             player.x -= speed;
-            lEsq = true ;
-            lDir =false;
+            lEsq = true;
+            lDir = false;
         }
 
         if (keyUp) {
@@ -165,15 +171,15 @@ public class GamePanel extends javax.swing.JFrame implements Runnable {
             player.y += speed;
         }
 
-        if (!(keyDown || keyUp || keyLeft || keyRight )) {
-            if (lDir){
+        if (!(keyDown || keyUp || keyLeft || keyRight)) {
+            if (lDir) {
                 player.setIconStoppedD();
             }
-             if  (lEsq) {
-                 player.setIconStoppedE();
+            if (lEsq) {
+                player.setIconStoppedE();
             }
         }
-       
+
         player.move();
     }
 
