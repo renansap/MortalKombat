@@ -15,7 +15,7 @@ import javax.swing.JLabel;
  */
 public class Player extends JLabel{
     
-        public int x = 0, y = 0;    
+        public int x = 70, y = 180;    
     ImageIcon walkL;
     ImageIcon walkR;
     ImageIcon walkU;
@@ -23,10 +23,10 @@ public class Player extends JLabel{
     ImageIcon stoppedD; //Parada Direita
     ImageIcon stoppedE;//Parada Esquerda
     public void setup(){
-        setText("12");
+        //setText("12");
         
-        stoppedD = new ImageIcon(new ImageIcon(getClass().getResource("p_d.gif")).getImage().getScaledInstance(88, 127, Image.SCALE_DEFAULT));
-        stoppedE = new ImageIcon(new ImageIcon(getClass().getResource("p_e.gif")).getImage().getScaledInstance(88, 127, Image.SCALE_DEFAULT));
+        stoppedD = new ImageIcon(new ImageIcon(getClass().getResource("p_d.gif")).getImage().getScaledInstance(70, 127, Image.SCALE_DEFAULT));
+        stoppedE = new ImageIcon(new ImageIcon(getClass().getResource("p_e.gif")).getImage().getScaledInstance(70, 127, Image.SCALE_DEFAULT));
         
         walkR = new ImageIcon(new ImageIcon(getClass().getResource("c_d.gif")).getImage().getScaledInstance(88, 127, Image.SCALE_DEFAULT));  
         walkL = new ImageIcon(new ImageIcon(getClass().getResource("c_e.gif")).getImage().getScaledInstance(88, 127, Image.SCALE_DEFAULT));
