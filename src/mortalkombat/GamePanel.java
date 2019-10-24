@@ -5,6 +5,8 @@
  */
 package mortalkombat;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -21,9 +23,8 @@ public class GamePanel extends javax.swing.JFrame implements Runnable {
     Boolean keyRight = false, keyLeft = false, keyUp = false, keyDown = false;
     Thread t;
     Integer speed = 4;
-    
-    //public List<Player> players = new ArrayList<>();
 
+    //public List<Player> players = new ArrayList<>();
     /**
      * Creates new form GamePanel
      */
@@ -107,6 +108,10 @@ public class GamePanel extends javax.swing.JFrame implements Runnable {
         t.start();
     }//GEN-LAST:event_formWindowOpened
 
+    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    double width = screenSize.getWidth();
+    double height = screenSize.getHeight();
+
     /**
      * @param args the command line arguments
      */
@@ -138,7 +143,8 @@ public class GamePanel extends javax.swing.JFrame implements Runnable {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 GamePanel g = new GamePanel();
-                g.setSize(800, 600);
+               // g.setSize(800, 600);
+                g.setSize(Toolkit.getDefaultToolkit().getScreenSize().width,Toolkit.getDefaultToolkit().getScreenSize().height);
                 g.setVisible(true);
 
             }
