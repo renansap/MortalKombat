@@ -42,10 +42,11 @@ public class GamePanel implements Runnable {
     public void waitForPlayer() {
         try {
             ServerSocket ss = new ServerSocket(8880);
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < 10; i++) {
                 Socket s = ss.accept();
                 Player p1 = new Player(s);
                 players[i] = p1;
+                System.out.println("segundo");
                 PlayerThread p2 = new PlayerThread(p1, s);
                 Thread th = new Thread(p2);
                 th.start();
@@ -66,17 +67,19 @@ public class GamePanel implements Runnable {
             } catch (InterruptedException ex) {
                 Logger.getLogger(GamePanel.class.getName()).log(Level.SEVERE, null, ex);
             }
-
+            
+            
+            
             for (int i = 0; i < players.length; i++) {
                 if (players[i] != null) {
                     String posicao = players[i].id + "_" + players[i].x + "_" + players[i].y + "_" + players[i].w + "_" + players[i].h + "_" + players[i].lado + "_" + players[i].pontos;
                     players[i].out.println(posicao);
-                    System.out.println(posicao);
+                    //System.out.println(posicao);
 
                     for (int h = 0; h < players.length; h++) {
                         if (h != i && players[h] != null) {
                             players[h].out.println(posicao);
-                            System.out.println(posicao);
+                            //System.out.println(posicao);
                             double x = 0, y = 0;
 
                             if (players[i].punch == 1) {
