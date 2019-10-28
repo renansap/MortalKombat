@@ -34,7 +34,7 @@ public class GamePanel implements Runnable {
 
     //Player player;
     public static Player[] players;
-    public static final int SPEED = 8;
+    public static final int SPEED = 8; //velocidade do jogo
 //    Boolean keyRight = false, keyLeft = false, keyUp = false, keyDown = false;
 //    Thread t;
 //    Integer speed = 4;
