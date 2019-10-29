@@ -25,6 +25,7 @@ public class Player {
     public boolean btU = false;
     public boolean btD = false;
     public boolean dirR = true;
+    
     public PrintWriter out;
 
     public int getId() {

@@ -38,7 +38,8 @@ public class GamePanel implements Runnable {
     }
 
     //Player player;
-    public List<Player> players = new ArrayList<>();
+    public List<Player> players = new ArrayList<>(); // lista do tipo player
+
     //public static Player[] players;
     public static final int SPEED = 8; //velocidade do jogo
 //    Boolean keyRight = false, keyLeft = false, keyUp = false, keyDown = false;
@@ -87,7 +88,6 @@ public class GamePanel implements Runnable {
                         players.get(i).y -= SPEED;
                         players.get(i).btU = false;
                     }
-
                     if (players.get(i).btD) {
                         System.out.println("move Baixo");
                         players.get(i).y += SPEED;
@@ -103,7 +103,7 @@ public class GamePanel implements Runnable {
 //                    }
 //                    
                     String posicaoPlayer = players.get(i).getId() + "_" + players.get(i).x + "_" + players.get(i).y + "_" + players.get(i).dirR + "_"
-                            + players.get(i).w + "" + players.get(i).h;
+                            + players.get(i).w + "" + players.get(i).h; // Gravo no array a posição do jogador
                     players.get(i).out.println(posicaoPlayer);
 
                     for (int j = 0; j < players.size(); j++) {
