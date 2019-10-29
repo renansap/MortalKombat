@@ -43,27 +43,6 @@ public class PlayerThread implements Runnable {
 
             while (true) {
                 System.out.println(command);
-//                if (!(command = in.readLine()).equals("exit")) {
-//                    if (command.equals("PR_R")) {
-//                        player.x += SPEED;
-//                        player.lado = 'R';
-//                    }
-//                    if (command.equals("PR_L") && player.x >= 0) {
-//                        player.x -= SPEED;
-//                        player.lado = 'L';
-//                    }
-//                    if (command.equals("PR_U") && player.y >= 0) {
-//                        player.y -= SPEED;
-//                    }
-//                    if (command.equals("PR_D")) {
-//                        player.y += SPEED;
-//                    }
-//                    if (command.equals("PUNCH")) {
-//                        player.punch = 1;
-//                    }
-//
-//                }
-
             }
         } catch (IOException ex) {
             Logger.getLogger(PlayerThread.class.getName()).log(Level.SEVERE, null, ex);

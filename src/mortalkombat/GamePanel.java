@@ -143,7 +143,7 @@ public class GamePanel implements Runnable {
         try {
             ServerSocket serverSocket = new ServerSocket(8880);
 
-            while(true){
+            while (true) {
                 Socket socket = serverSocket.accept();
 
                 RecebeComandos comandos = new RecebeComandos(socket, adicionarNovoJogador());
@@ -160,30 +160,42 @@ public class GamePanel implements Runnable {
     @Override
     public void run() {
         try {
-            while(true){
+            while (true) {
                 Thread.sleep(20);
-                for(int i = 0; i < players.size(); i++){
-                    if(players.get(i).btR){
+                for (int i = 0; i < players.size(); i++) {
+                    if (players.get(i).btR) {//move direita
+                        System.out.println("move direita");
                         players.get(i).x += SPEED;
-                        players.get(i).btR = false ;
+                        players.get(i).btR = false;
                         players.get(i).dirR = true;
                     }
-                    if(players.get(i).btL){
+                    if (players.get(i).btL) {//move esquerda
+                        System.out.println("move Esquerda");
                         players.get(i).x -= SPEED;
                         players.get(i).btL = false;
                         players.get(i).dirR = false;
                     }
 
-                    if(players.get(i).btU){
+                    if (players.get(i).btU) {// move pra cima
+                        System.out.println("move Cima");
                         players.get(i).y -= SPEED;
                         players.get(i).btU = false;
                     }
 
-                    if(players.get(i).btD){
+                    if (players.get(i).btD) {
+                        System.out.println("move Baixo");
                         players.get(i).y += SPEED;
                         players.get(i).btD = false;
                     }
 
+//                    if((!players.get(i).btD ||players.get(i).btU ||players.get(i).btL ||players.get(i).btR)){
+//                        if (players.get(i).btD){
+////                            jogador.
+//                            
+//                        }
+//                        
+//                    }
+//                    
                     String posicaoPlayer = players.get(i).getId() + "_" + players.get(i).x + "_" + players.get(i).y + "_" + players.get(i).dirR + "_"
                             + players.get(i).w + "" + players.get(i).h;
                     players.get(i).out.println(posicaoPlayer);
@@ -208,7 +220,7 @@ public class GamePanel implements Runnable {
         players.add(novoJogador);
         return novoJogador;
     }
-    }
+}
 
 //
 //    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
