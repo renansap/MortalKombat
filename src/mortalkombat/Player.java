@@ -13,31 +13,48 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-/**
- *
- * @author Ksa
- */
 public class Player {
-    
-    public int x=70, y=130, w= 90, h = 127, id, punch = 0,pontos = 0;
-    public char lado = 'R';
-    
-    public Socket conexao;
+
+    private int id;
+    public int x= 50;
+    public int y= 50;
+    public int w= 90;
+    public int h = 127;
+    public boolean btR = false;
+    public boolean btL = false;
+    public boolean btU = false;
+    public boolean btD = false;
+    public boolean dirR = true;
     public PrintWriter out;
-    
-    public Player(Socket socket) {
-        
-        
-        Random r = new Random();
-        this.id = r.nextInt();
-        
-        this.conexao = socket;
-        
-        try {
-            out = new PrintWriter(this.conexao.getOutputStream(),true);
-        } catch (IOException ex) {
-            Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
+//    public int x=70, y=130, w= 90, h = 127, id, punch = 0,pontos = 0;
+//    public char lado = 'R';
+//
+//    public Socket conexao;
+//    public PrintWriter out;
+//
+//    public Player(Socket socket) {
+//
+//
+//        Random r = new Random();
+//        this.id = r.nextInt();
+//
+//        this.conexao = socket;
+//
+//        try {
+//            out = new PrintWriter(this.conexao.getOutputStream(),true);
+//        } catch (IOException ex) {
+//            Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
+//        }
 
 }
 
@@ -129,4 +146,4 @@ public class Player {
 //        setIcon(stoppedE);
 //    }
 
-}
+//}

@@ -31,7 +31,7 @@ public class PlayerThread implements Runnable {
         this.socket = socket;
 
     }
-  
+
     @Override
     public void run() {
         BufferedReader in;
