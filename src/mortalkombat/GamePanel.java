@@ -5,16 +5,10 @@
  */
 package mortalkombat;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -71,37 +65,65 @@ public class GamePanel implements Runnable {
                 Thread.sleep(20);
                 for (int i = 0; i < players.size(); i++) {
                     if (players.get(i).btR) {//move direita
+                        if (players.get(i).x < 714) {
+                            System.out.println("move direita"); //limitando tamanho da tela dir
+                            System.out.println("Posição: " + players.get(i).x);
+                            players.get(i).x += SPEED;
+                            players.get(i).btR = false;
+                            players.get(i).dirR = true;
+                        } else {
+                            players.get(i).x = 714;
+                        }
                         System.out.println("move direita");
+                        //System.out.println("Posição: " + players.get(i).x);
                         players.get(i).x += SPEED;
                         players.get(i).btR = false;
                         players.get(i).dirR = true;
                     }
                     if (players.get(i).btL) {//move esquerda
+                        if (players.get(i).x > -14) {//limitando tamanho da tela esq
+                            System.out.println("move Esquerda");
+                            // System.out.println("Posição: " + players.get(i).x);
+                            players.get(i).x -= SPEED;
+                            players.get(i).btL = false;
+                            players.get(i).dirR = false;
+                        } else {
+                            players.get(i).x = -14;
+                        }
                         System.out.println("move Esquerda");
                         players.get(i).x -= SPEED;
                         players.get(i).btL = false;
                         players.get(i).dirR = false;
                     }
-
                     if (players.get(i).btU) {// move pra cima
+                        if (players.get(i).y > 5) {// limit p/cima
+                            System.out.println("move Cima");
+                            System.out.println("Posição Cima1: " + players.get(i).y);
+                            players.get(i).y -= SPEED;
+                            players.get(i).btU = false;
+                        } else {
+                            players.get(i).y = 5;
+                        }
                         System.out.println("move Cima");
+                        System.out.println("Posição Cima2: " + players.get(i).y);
                         players.get(i).y -= SPEED;
                         players.get(i).btU = false;
                     }
                     if (players.get(i).btD) {
+                        if (players.get(i).y < 466) {// limit p/baixo
+                            System.out.println("move Baixo");
+                            System.out.println("Posição Baixo: " + players.get(i).y);
+                            players.get(i).y += SPEED;
+                            players.get(i).btD = false;
+                        } else {
+                            players.get(i).y = 466;
+                        }
                         System.out.println("move Baixo");
+                        System.out.println("Posição Baixo2: " + players.get(i).y);
                         players.get(i).y += SPEED;
                         players.get(i).btD = false;
                     }
 
-//                    if((!players.get(i).btD ||players.get(i).btU ||players.get(i).btL ||players.get(i).btR)){
-//                        if (players.get(i).btD){
-////                            jogador.
-//                            
-//                        }
-//                        
-//                    }
-//                    
                     String posicaoPlayer = players.get(i).getId() + "_" + players.get(i).x + "_" + players.get(i).y + "_" + players.get(i).dirR + "_"
                             + players.get(i).w + "" + players.get(i).h; // Gravo no array a posição do jogador
                     players.get(i).out.println(posicaoPlayer);
@@ -127,73 +149,3 @@ public class GamePanel implements Runnable {
         return novoJogador;
     }
 }
-
-//
-//    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-//        // TODO add your handling code here:
-//        player = new Player();
-//        player.setup();
-//        getContentPane().add(player);
-//        repaint();
-//        t = new Thread(this);
-//        t.start();
-//    }//GEN-LAST:event_formWindowOpened
-//
-//    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-//    double width = screenSize.getWidth();
-//    double height = screenSize.getHeight();
-//
-//    /**
-//     * @param args the command line arguments
-//     */
-//    boolean lEsq = false;
-//    boolean lDir = true;
-//
-//    public void updateGame() {
-//
-//        if (keyRight) {//move direita
-//            player.setIconRight();
-//            player.x += speed;
-//            lDir = true;
-//            lEsq = false;
-//        }
-//
-//        if (keyLeft) {//move esquerda
-//            player.setIconLeft();
-//            player.x -= speed;
-//            lEsq = true;
-//            lDir = false;
-//        }
-//
-//        if (keyUp) {
-//            player.y -= speed;
-//        }
-//
-//        if (keyDown) {
-//            player.y += speed;
-//        }
-//
-//        if (!(keyDown || keyUp || keyLeft || keyRight)) {
-//            if (lDir) {
-//                player.setIconStoppedD();
-//            }
-//            if (lEsq) {
-//                player.setIconStoppedE();
-//            }
-//        }
-//
-//        player.move();
-//    }
-//
-//    @Override
-//    public void run() {
-//        while (true) {
-//            try {
-//                updateGame();
-//                Thread.sleep(20);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
-//}
